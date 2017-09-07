@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 
 public interface Service {
 
-    public static final String base_url = "http://104.236.7.68/api/v1/";
+    public static final String base_url = "http://104.236.7.68:8080/ocorrencia/";
 
     Gson gson = new GsonBuilder().setLenient().create();
 
@@ -30,16 +30,16 @@ public interface Service {
     //@GET("followers")
     //Call<Catalogos> listaCatalogos1(); //JSON OBJECT
 
-    @GET("ocorrencias")
+    @GET("ocorrencia")
     Call<List<Ocorrencia>> getOcorrencias(); //capturar todas as ocorrencias
 
-    @GET("ocorrencias/{id}")
+    @GET("ocorrencium/{id}")
     Call<List<Ocorrencia>> showOcorrencias(); //Detalhes da ocorrencia
 
-    @POST("ocorrencias")
+    @POST("ocorrencia")
     Call<Ocorrencia> setOcorrencias(@Body Ocorrencia ocorrencias); //postar uma ocorrencia
 
-    @DELETE("ocorrencias/{id}")
+    @DELETE("ocorrencia/{id}")
     Call<Void> deleteOcorrencias(@Path("id") String itemId); //deletar uma ocorrencia
 
 }
