@@ -77,7 +77,7 @@ public class Lista_OcorrenciasFragment extends Fragment {
 
         //Call<Catalogos> requisicao = service.listaCatalogos();
         Call<List<Ocorrencia>> requisicao = service.getOcorrencias();
-
+        
         //executar de forma assincrona
         requisicao.enqueue(new Callback<List<Ocorrencia>>() {
 
@@ -91,12 +91,13 @@ public class Lista_OcorrenciasFragment extends Fragment {
                     Log.i("LISTA", "Erro: " + "Erro: " + response.code());
                 }
                 else{
+
                     //captura o objeto JSON e converte
                     List<Ocorrencia> catalogo = response.body();
 
                     for(Ocorrencia oco : catalogo){
 
-                        Log.i("LISTA", ""+oco.getId() );
+                        Log.i("LISTA", ""+oco.getTitulo() );
 
                         ocorrencia.add(oco);
 
