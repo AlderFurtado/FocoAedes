@@ -2,6 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,12 +11,15 @@
     android:paddingLeft="16dp"
     android:background="@color/branquinho">
 
-    <ImageView
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/lista_foto"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:src="@color/amarromzado"/>
+        android:src="@mipmap/dengue_gelada"
+        app:siRadius="1dp"
+        app:siBorderWidth="0.5dp"
+        app:siBorderColor="@color/amarromzado" />
 
     <TextView
         android:id="@+id/lista_id"

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
-    
+
     <TextView
         android:id="@+id/marker_titulo"
         android:layout_width="wrap_content"
@@ -17,16 +18,15 @@
         android:textSize="16dp"
         android:textColor="@color/pretinho"
         android:layout_gravity="center"/>
-    
-    <ImageView
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/marker_foto"
         android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="2dp"
-        android:scaleX="2.5"
-        android:scaleY="1.6"
-        android:src="@mipmap/dengue_gelada"/>
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/dengue_gelada"
+        app:siRadius="2dp"
+        app:siBorderWidth="1dp"
+        app:siBorderColor="@color/amarromzado" />
 
 </LinearLayout>

@@ -1,14 +1,17 @@
 package com.example.savio.focoaedes;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.savio.focoaedes.base.Service;
@@ -35,10 +38,12 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
 //---------------Variaveis globais------------------------------------------------------------------//
 
+
     GoogleMap mMap;
     LocationManager locationManager;
     float zoom;
 
+    List foto = new ArrayList<String>();
 
 //---------------Ciclo de vida----------------------------------------------------------------------//
 
@@ -110,7 +115,19 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                 View markerview = getLayoutInflater(null).inflate(R.layout.marker_layout, null);
 
                 TextView markertitulo = (TextView) markerview.findViewById(R.id.marker_titulo);
+                ImageView markerimagem = (ImageView) markerview.findViewById(R.id.marker_foto);
+
                 markertitulo.setText(marker.getTitle());
+
+                //pega o index do marcador (possui um 'm' antes do numero)
+                int index = Integer.parseInt(marker.getId().substring(1));
+
+                if (foto.get(index) != null){
+
+                    //decodifica imagem e manda pra lista
+                    byte[] decodedString = Base64.decode(String.valueOf(foto.get(index)), Base64.DEFAULT);
+                    markerimagem.setImageBitmap(BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length));
+                }
 
                 return markerview;
             }
@@ -205,7 +222,10 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                                         .title(oco.getTitulo())
                                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location_on_black_24dp)); //design do marker
 
+                                foto.add(oco.getFoto());
+
                                 mMap.addMarker(options);
+
                             }
 
                         } catch (IOException e) {
