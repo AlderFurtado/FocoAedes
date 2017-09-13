@@ -3,6 +3,7 @@ package com.example.savio.focoaedes.adapters;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,14 @@ public class ListaAdapter extends RecyclerView.Adapter<ListaAdapter.Visao>{
 
         Ocorrencia atual = ocorrencias.get(position);
 
+        if (atual.getFoto() != null){
+
+            //decodifica iamgem e manda pra lista
+            byte[] decodedString = Base64.decode(atual.getFoto(), Base64.DEFAULT);
+            visao.foto.setImageBitmap(BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length));
+        }
+
         visao.id.setText(atual.getId());
-        visao.foto.setImageBitmap(BitmapFactory.decodeFile(atual.getFoto()));
         visao.titulo.setText(atual.getTitulo());
         visao.data.setText(atual.getData());
         visao.endereco.setText(atual.getRua() +" - "+ atual.getBairro());

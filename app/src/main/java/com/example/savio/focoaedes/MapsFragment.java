@@ -188,21 +188,25 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
                         try {
 
-                            list = geocoder.getFromLocationName(oco.getRua()+" "+oco.getBairro(), 1);
 
-                            Address add = list.get(0);
+                            if(oco.getRua() != ""){
 
-                            double lat = add.getLatitude();
-                            double lng = add.getLongitude();
+                                list = geocoder.getFromLocationName(oco.getRua()+" "+oco.getBairro(), 1);
 
-                            LatLng marca = new LatLng(lat,lng);
+                                Address add = list.get(0);
 
-                            MarkerOptions options = new MarkerOptions()
-                                    .position(marca)
-                                    .title(oco.getTitulo())
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location_on_black_24dp)); //design do marker
+                                double lat = add.getLatitude();
+                                double lng = add.getLongitude();
 
-                            mMap.addMarker(options);
+                                LatLng marca = new LatLng(lat,lng);
+
+                                MarkerOptions options = new MarkerOptions()
+                                        .position(marca)
+                                        .title(oco.getTitulo())
+                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location_on_black_24dp)); //design do marker
+
+                                mMap.addMarker(options);
+                            }
 
                         } catch (IOException e) {
                             e.printStackTrace();

@@ -1,18 +1,19 @@
 package com.example.savio.focoaedes.fragments;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.savio.focoaedes.MainActivity;
 import com.example.savio.focoaedes.R;
@@ -30,6 +30,8 @@ import com.example.savio.focoaedes.base.Service;
 import com.example.savio.focoaedes.mascaras.MaskTelefone;
 import com.example.savio.focoaedes.model.Ocorrencia;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,6 +56,9 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
     SimpleDateFormat formato;
     String data = "";
+
+    private byte[] imagem;
+    private String encodedImage;
 
     public Nova_OcorrenciaFragment() { /*Required empty public constructor*/ }
 
@@ -183,9 +188,15 @@ public class Nova_OcorrenciaFragment extends Fragment {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
 
             //captura a imagem tirada da camera
-            pic_uri = data.getData();
+            //pic_uri = data.getData();
+            //cortarFoto();
 
-            cortarFoto();
+            Bundle extras = data.getExtras();
+            Bitmap photo = extras.getParcelable("data");
+
+            foto.setImageBitmap(photo);
+
+            converterImagem(photo);
         }
         //se o cortador de foto for ativado
         else if (requestCode == CROP_PIC) {
@@ -197,7 +208,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
     }
 
     //metodo para abrir a edição de foto (cortar)
-    private void cortarFoto() {
+    /*private void cortarFoto() {
 
         try {
 
@@ -215,7 +226,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
             Log.i("NovaOcorrencia", e.toString());
         }
-    }
+    }*/
 
     void novaOcorrencia(){
 
@@ -224,7 +235,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
         //Call<Catalogos> requisicao = service.listaCatalogos();
         Call<Ocorrencia> post = service.setOcorrencias(new Ocorrencia(
-                foto.getDrawable().toString(),
+                String.valueOf(encodedImage),
                 titulo.getText().toString(),
                 data,
                 bairro.getText().toString(),
@@ -260,6 +271,18 @@ public class Nova_OcorrenciaFragment extends Fragment {
         });
 
     }
+
+    void converterImagem(Bitmap photo){
+
+        File file = new File(Environment.getExternalStorageDirectory() + "/DCIM/", "image" + new Date().getTime() + ".png");
+        pic_uri = Uri.fromFile(file);
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        photo.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+        imagem = baos.toByteArray();
+        encodedImage = Base64.encodeToString(imagem, Base64.DEFAULT);
+    }
+
 
 
 //--------------Fim de codigo-----------------------------------------------------------------------//
