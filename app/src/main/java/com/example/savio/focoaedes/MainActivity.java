@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         fab_rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_menu_rotate);
         fab_back_rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_menu_back_rotate);
 
+        fab_mapa.setEnabled(false);
+
 
 //--------------Listeners dos Botões----------------------------------------------------------------//
 
@@ -71,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 //Inicia Fragment da lista
                 mostrarFragmentSemPilha(new Lista_OcorrenciasFragment(), "ListaFragment");
 
-                fab_lista.setClickable(false);
-                fab_mapa.setClickable(true);
+                fab_lista.setEnabled(false);
+                fab_mapa.setEnabled(true);
             }
         });
 
@@ -91,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 //Inicia Fragment do mapa
                 mostrarFragmentSemPilha(new MapsFragment(), "MapsFragment");
 
-                fab_lista.setClickable(true);
-                fab_mapa.setClickable(false);
+                fab_lista.setEnabled(true);
+                fab_mapa.setEnabled(false);
             }
         });
 

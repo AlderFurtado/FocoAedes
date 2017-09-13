@@ -243,7 +243,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
                 }else{
 
-                    Toast.makeText(getActivity(), "Criado Com sucesso", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Criado Com sucesso", Toast.LENGTH_SHORT).show();
 
                     //codigo acima deveria entrar aqui
                     Log.i("NOVA OCORRENCIA", "Beleza ");

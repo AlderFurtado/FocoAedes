@@ -1,5 +1,6 @@
 package com.example.savio.focoaedes.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,8 @@ import retrofit2.Response;
 
 public class Lista_OcorrenciasFragment extends Fragment {
 
+    public MainActivity activity;
+
     BaseLocal baseLocal;
 
     public TextView qtd_ocorrencias;
@@ -40,6 +43,13 @@ public class Lista_OcorrenciasFragment extends Fragment {
 
 //---------------Ciclo de vida----------------------------------------------------------------------//
 
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        this.activity = (MainActivity) activity;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,7 +75,8 @@ public class Lista_OcorrenciasFragment extends Fragment {
         ((MainActivity) getActivity()).mostraFloatingActionButton();
     }
 
-//--------------Meus metodos para facilitar minha vida----------------------------------------------//
+
+    //--------------Meus metodos para facilitar minha vida----------------------------------------------//
 
 
     void listarTodasOcorrencias(){
@@ -103,7 +114,7 @@ public class Lista_OcorrenciasFragment extends Fragment {
 
                     }
 
-                    adapter = new ListaAdapter(getActivity(), ocorrencia);
+                    adapter = new ListaAdapter(activity, ocorrencia);
 
                     lista_ocorrencias.setAdapter(adapter);
                     lista_ocorrencias.setLayoutManager(new LinearLayoutManager(getActivity()));
