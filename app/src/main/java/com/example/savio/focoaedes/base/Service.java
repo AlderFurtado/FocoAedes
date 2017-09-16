@@ -34,7 +34,7 @@ public interface Service {
     Call<List<Ocorrencia>> getOcorrencias(); //capturar todas as ocorrencias
 
     @GET("ocorrencias/{id}")
-    Call<List<Ocorrencia>> showOcorrencias(); //Detalhes da ocorrencia
+    Call<Ocorrencia> showOcorrencias(@Path("id") String itemId); //Detalhes da ocorrencia
 
     @POST("ocorrencias")
     Call<Ocorrencia> setOcorrencias(@Body Ocorrencia ocorrencias); //postar uma ocorrencia

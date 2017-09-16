@@ -1,6 +1,7 @@
 package com.example.savio.focoaedes.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.savio.focoaedes.Detalhe_Ocorrencia_Activity;
 import com.example.savio.focoaedes.R;
 import com.example.savio.focoaedes.fragments.Lista_OcorrenciasFragment;
 import com.example.savio.focoaedes.model.Ocorrencia;
@@ -93,6 +95,16 @@ public class ListaAdapter extends RecyclerView.Adapter<ListaAdapter.Visao>{
                     notifyDataSetChanged();
 
                     return false;
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(context, Detalhe_Ocorrencia_Activity.class);
+                    i.putExtra("id_ocorrencia", id.getText());
+                    context.startActivity(i);
                 }
             });
 
