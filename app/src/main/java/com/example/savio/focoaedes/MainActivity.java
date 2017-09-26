@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.savio.focoaedes.fragments.Lista_OcorrenciasFragment;
 import com.example.savio.focoaedes.fragments.Nova_OcorrenciaFragment;
 import com.example.savio.focoaedes.model.Localizacao;
-import com.google.android.gms.maps.model.LatLng;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 //--------------Botões flutuantes e animações-------------------------------------------------------//
-
 
         localizacao = new Localizacao();
 

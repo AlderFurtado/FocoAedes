@@ -79,6 +79,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         cancelar = (ImageView) view.findViewById(R.id.nova_cancelar);
         salvar = (TextView) view.findViewById(R.id.nova_salvar);
+
         atual_localizacao = (ImageView) view.findViewById(R.id.atual_localizacao);
 
         foto = (ImageView) view.findViewById(R.id.nova_foto);
@@ -103,7 +104,6 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
 
 //--------------Listeners do toolbar e outros-------------------------------------------------------//
-
 
         atual_localizacao.setOnClickListener(new View.OnClickListener() {
 
