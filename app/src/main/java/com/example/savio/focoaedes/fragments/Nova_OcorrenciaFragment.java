@@ -130,13 +130,18 @@ public class Nova_OcorrenciaFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-            novaOcorrencia();
+            if (!campoVzio(titulo) && !campoVzio(rua) && !campoVzio(bairro)){
 
-            //escoder teclado
-            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 
-            getFragmentManager().popBackStack();
+                novaOcorrencia();
+
+                //escoder teclado
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+
+                getFragmentManager().popBackStack();
+            }
+
             }
         });
 
@@ -162,6 +167,19 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
 //--------------Meus metodos para facilitar minha vida----------------------------------------------//
 
+    boolean campoVzio(EditText edittext){
+        int verifica;
+        verifica = edittext.getText().toString().trim().length();
+
+        if (verifica == 0){
+
+            edittext.setError("Campo deve ser preenchido");
+            return true;
+
+        }
+
+        return false;
+    }
 
     //ativa o o focus na borda de cada item do formulario escolhido
     void focusFormulario(EditText editText){
@@ -206,27 +224,6 @@ public class Nova_OcorrenciaFragment extends Fragment {
             foto.setImageBitmap(photo);
         }
     }
-
-    //metodo para abrir a edição de foto (cortar)
-    /*private void cortarFoto() {
-
-        try {
-
-            Intent cropIntent = new Intent("com.android.camera.action.CROP");
-            cropIntent.setDataAndType(pic_uri, "image/*");
-            cropIntent.putExtra("crop", "true");
-            cropIntent.putExtra("aspectX", 1);
-            cropIntent.putExtra("aspectY", 1);
-            cropIntent.putExtra("outputX", 250);
-            cropIntent.putExtra("outputY", 250);
-            cropIntent.putExtra("return-data", true);
-            startActivityForResult(cropIntent, CROP_PIC);
-        }
-        catch (ActivityNotFoundException e) {
-
-            Log.i("NovaOcorrencia", e.toString());
-        }
-    }*/
 
     void novaOcorrencia(){
 
