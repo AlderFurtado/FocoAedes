@@ -38,7 +38,6 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
 //---------------Variaveis globais------------------------------------------------------------------//
 
-
     GoogleMap mMap;
     LocationManager locationManager;
     float zoom;
@@ -157,6 +156,11 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
         zoom = mMap.getCameraPosition().zoom;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(meulocal,zoom));
+
+        //atualiza para ser acessada em outros metodos
+        ((MainActivity) getActivity()).localizacao.setLatitude(location.getLatitude());
+        ((MainActivity) getActivity()).localizacao.setLongetude(location.getLongitude());
+
     }
 
     @Override
@@ -229,6 +233,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
                             }
 
                         } catch (IOException e) {
+
                             e.printStackTrace();
                         }
 

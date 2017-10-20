@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.savio.focoaedes.MainActivity;
 import com.example.savio.focoaedes.R;
@@ -32,9 +35,11 @@ import com.example.savio.focoaedes.model.Ocorrencia;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +53,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
     View view;
     EditText titulo, bairro, rua, telefone, email, descricao;
     TextView salvar;
-    ImageView cancelar, foto;
+    ImageView cancelar, foto, atual_localizacao;
     Toolbar toolbar;
     private final int CAMERA_REQUEST = 1888;
     final int   CROP_PIC = 2;
@@ -65,6 +70,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_nova_ocorrencia, container, false);
 
         baseLocal = new BaseLocal(getContext());
@@ -73,6 +79,8 @@ public class Nova_OcorrenciaFragment extends Fragment {
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         cancelar = (ImageView) view.findViewById(R.id.nova_cancelar);
         salvar = (TextView) view.findViewById(R.id.nova_salvar);
+
+        atual_localizacao = (ImageView) view.findViewById(R.id.atual_localizacao);
 
         foto = (ImageView) view.findViewById(R.id.nova_foto);
         titulo = (EditText) view.findViewById(R.id.nova_titulo);
@@ -97,6 +105,45 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
 //--------------Listeners do toolbar e outros-------------------------------------------------------//
 
+        atual_localizacao.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Geocoder geocoder = new Geocoder(getActivity());
+                List<Address> addresses;
+
+                try {
+
+                    addresses = geocoder.getFromLocation(
+                        ((MainActivity) getActivity()).localizacao.getLatitude(),
+                        ((MainActivity) getActivity()).localizacao.getLongetude(),
+                        1
+                    );
+
+                    if(!addresses.isEmpty()){
+
+                        Address address = addresses.get(0);
+
+                        rua.setText(address.getThoroughfare()+", "+address.getFeatureName());
+                        bairro.setText(address.getSubLocality());
+
+
+                    }else{
+
+                        Toast.makeText(getActivity(), "Endereço não encontrado.", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+                catch (IOException e) {
+
+                    Toast.makeText(getActivity(), "Erro ao pegar endereço.", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
         //clique no icone com a camerazinha ativa a camera do celular
         foto.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +177,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-            if (!campoVzio(titulo) && !campoVzio(rua) && !campoVzio(bairro)){
+            if (!campoVzio(titulo) && !campoVzio(rua) && !campoVzio(bairro) && encodedImage != null){
 
 
                 novaOcorrencia();
@@ -140,6 +187,10 @@ public class Nova_OcorrenciaFragment extends Fragment {
                 imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 
                 getFragmentManager().popBackStack();
+            }
+            else if(encodedImage == null){
+
+                Toast.makeText(getActivity(), "Adicionar uma foto.", Toast.LENGTH_SHORT).show();
             }
 
             }
@@ -204,10 +255,6 @@ public class Nova_OcorrenciaFragment extends Fragment {
 
         //se a camera for ativado
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-
-            //captura a imagem tirada da camera
-            //pic_uri = data.getData();
-            //cortarFoto();
 
             Bundle extras = data.getExtras();
             Bitmap photo = extras.getParcelable("data");

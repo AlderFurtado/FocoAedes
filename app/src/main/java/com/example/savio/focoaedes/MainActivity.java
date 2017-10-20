@@ -15,10 +15,13 @@ import android.widget.Toast;
 
 import com.example.savio.focoaedes.fragments.Lista_OcorrenciasFragment;
 import com.example.savio.focoaedes.fragments.Nova_OcorrenciaFragment;
+import com.example.savio.focoaedes.model.Localizacao;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
+
+    public Localizacao localizacao;
 
     LinearLayout fab_change;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 //--------------Botões flutuantes e animações-------------------------------------------------------//
 
+        localizacao = new Localizacao();
 
         //Botões flutuantes
         fab = (FloatingActionButton) findViewById(R.id.fab);

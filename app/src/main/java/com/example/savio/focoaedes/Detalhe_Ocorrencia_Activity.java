@@ -28,7 +28,8 @@ public class Detalhe_Ocorrencia_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalhe__ocorrencia_);
+
+        setContentView(R.layout.activity_detalhe_ocorrencia_);
 
         foto_detalhe = (ImageView) findViewById(R.id.detalhe_imagem);
         titulo_detalhe = (TextView) findViewById(R.id.detalhe_titulo);

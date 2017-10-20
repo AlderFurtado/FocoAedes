@@ -115,7 +115,7 @@
                 android:textColor="@color/pretinho"/>
 
             <ImageView
-                android:id="@+id/nova_localizacao"
+                android:id="@+id/atual_localizacao"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
