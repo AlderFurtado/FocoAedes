@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aplicativo em fase de teste, com o objetivo de coletar dados para versões futuras."
+                android:text="Nosso aplicativo ainda está em fase de testes! Denuncie possíveis focos do mosquito espalhados pela cidade. Participe!"
                 android:textColor="@color/branquinho"
                 android:textSize="22dp"
                 android:layout_marginTop="32dp"/>
