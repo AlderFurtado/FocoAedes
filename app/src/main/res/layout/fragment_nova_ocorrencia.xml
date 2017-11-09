@@ -21,7 +21,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight=".1"
-                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:src="@drawable/ic_setinha_voltar"
                 android:tint="@android:color/white"
                 android:layout_gravity="center"/>
 
@@ -139,7 +139,9 @@
                 android:maxLines="1"
                 android:inputType="phone"
                 android:textColorHint="@color/amarromzado"
-                android:textColor="@color/pretinho"/>
+                android:textColor="@color/pretinho"
+                android:visibility="gone"
+                />
 
             <EditText
                 android:id="@+id/nova_email"
@@ -154,7 +156,20 @@
                 android:maxLines="1"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/amarromzado"
-                android:textColor="@color/pretinho"/>
+                android:textColor="@color/pretinho"
+                android:visibility="gone"
+                />
+
+            <Spinner
+                android:id="@+id/nova_tipo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nova_bairro"
+                android:layout_marginTop="16dp"
+                android:foreground="@drawable/textfield_bg"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp"
+                android:paddingLeft="5dp"/>
 
             <EditText
                 android:id="@+id/nova_descricao"
@@ -163,7 +178,7 @@
                 android:background="@drawable/textfield_bg"
                 android:layout_marginTop="16dp"
                 android:padding="11dp"
-                android:layout_below="@+id/nova_email"
+                android:layout_below="@+id/nova_tipo"
                 android:layout_alignParentLeft="true"
                 android:hint="Descrição ..."
                 android:minLines="8"

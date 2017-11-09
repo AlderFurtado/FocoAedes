@@ -4,6 +4,10 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="save">SALVAR</string>
     <string name="cancel">CANCELAR</string>
+    <string-array name="tipo_valores">
+        <item>Doença</item>
+        <item>Foco</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

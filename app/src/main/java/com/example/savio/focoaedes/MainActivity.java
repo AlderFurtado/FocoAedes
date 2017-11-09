@@ -1,5 +1,6 @@
 package com.example.savio.focoaedes;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -140,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MainActivity.this, "Informações", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SobreActivity.class);
+                startActivity(intent);
             }
         });
 

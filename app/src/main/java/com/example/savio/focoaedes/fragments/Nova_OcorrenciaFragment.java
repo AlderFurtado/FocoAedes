@@ -21,8 +21,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +56,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
     EditText titulo, bairro, rua, telefone, email, descricao;
     TextView salvar;
     ImageView cancelar, foto, atual_localizacao;
+    private Spinner spinner;
     Toolbar toolbar;
     private final int CAMERA_REQUEST = 1888;
     final int   CROP_PIC = 2;
@@ -72,6 +75,15 @@ public class Nova_OcorrenciaFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_nova_ocorrencia, container, false);
+
+        spinner = (Spinner) view.findViewById(R.id.nova_tipo);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.tipo_valores, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
         baseLocal = new BaseLocal(getContext());
         formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -286,6 +298,7 @@ public class Nova_OcorrenciaFragment extends Fragment {
                 rua.getText().toString(),
                 telefone.getText().toString(),
                 email.getText().toString(),
+                spinner.getSelectedItem().toString(),
                 descricao.getText().toString()));
 
         post.enqueue(new Callback<Ocorrencia>() {

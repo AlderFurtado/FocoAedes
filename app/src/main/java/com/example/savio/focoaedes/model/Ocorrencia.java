@@ -5,7 +5,16 @@ package com.example.savio.focoaedes.model;
 public class Ocorrencia {
 
 
-    String id, caminho_foto, titulo, data, bairro, endereco, telefone, email, descricao;
+    String id;
+    String caminho_foto;
+    String titulo;
+    String data;
+    String bairro;
+    String endereco;
+    String telefone;
+    String email;
+    String descricao;
+    String tipo_ocorrencia;
 
 
     //--------------Construtores------------------------------------------------------------------------//
@@ -16,15 +25,15 @@ public class Ocorrencia {
     }
 
     //construtor para update
-    public Ocorrencia(String id, String foto, String titulo, String data, String bairro, String rua, String telefone, String email, String descricao){
+    public Ocorrencia(String id, String foto, String titulo, String data, String bairro, String rua, String telefone, String email, String tipo_ocorrencia, String descricao){
         this.id = id; this.caminho_foto = foto; this.titulo = titulo; this.data = data; this.bairro = bairro;
-        this.endereco = rua; this.telefone = telefone; this.email = email; this.descricao = descricao;
+        this.endereco = rua; this.telefone = telefone; this.email = email; this.tipo_ocorrencia = tipo_ocorrencia; this.descricao = descricao;
     }
 
     //construtor para insert
-    public Ocorrencia(String foto, String titulo, String data, String bairro, String rua, String telefone, String email, String descricao){
+    public Ocorrencia(String foto, String titulo, String data, String bairro, String rua, String telefone, String email, String tipo_ocorrencia, String descricao){
         this.caminho_foto = foto; this.titulo = titulo; this.data = data; this.bairro = bairro;
-        this.endereco = rua; this.telefone = telefone; this.email = email; this.descricao = descricao;
+        this.endereco = rua; this.telefone = telefone; this.email = email; this.tipo_ocorrencia = tipo_ocorrencia; this.descricao = descricao;
     }
 
 
@@ -103,4 +112,12 @@ public class Ocorrencia {
         this.descricao = descricao;
     }
 
+
+    public String getTipo_ocorrencia() {
+        return tipo_ocorrencia;
+    }
+
+    public void setTipo_ocorrencia(String tipo_ocorrencia) {
+        this.tipo_ocorrencia = tipo_ocorrencia;
+    }
 }
