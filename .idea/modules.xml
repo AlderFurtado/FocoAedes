@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FocoAedes.iml" filepath="$PROJECT_DIR$/FocoAedes.iml" />
-      <module fileurl="file://C:\Users\isabe.DESKTOP-N909COO\AndroidStudioProjects\FocoAedes\FocoAedes.iml" filepath="C:\Users\isabe.DESKTOP-N909COO\AndroidStudioProjects\FocoAedes\FocoAedes.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\isabe.DESKTOP-N909COO\AndroidStudioProjects\FocoAedes\app\app.iml" filepath="C:\Users\isabe.DESKTOP-N909COO\AndroidStudioProjects\FocoAedes\app\app.iml" />
     </modules>
   </component>
 </project>
