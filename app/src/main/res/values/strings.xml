@@ -4,9 +4,12 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="save">SALVAR</string>
     <string name="cancel">CANCELAR</string>
+<<<<<<< HEAD
     <string name="nova_denuncia">Nova Denúncia</string>
     <string name="denunciar_doenca">Denuncie um possível sintoma relacionado ao mosquito da dengue ou um caso de dengue comprovado pelo seu bairro</string>
     <string name="denunciar_foco">Denuncie água parada, larva do mosquito ou qualquer coisa relacionada a proliferação do mosquito da dengue!</string>
+=======
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
     <string-array name="tipo_valores">
         <item>Doença</item>
         <item>Foco</item>
@@ -14,5 +17,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<<<<<<< HEAD
     <string name="title_activity_nova_denuncia">activity_nova_denuncia</string>
+=======
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 </resources>

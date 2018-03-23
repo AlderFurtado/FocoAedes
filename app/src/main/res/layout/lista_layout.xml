@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,12 +15,22 @@
     android:background="@color/branquinho">
 
 
+<<<<<<< HEAD
         <ImageView
+=======
+    <com.github.siyamed.shapeimageview.RoundedImageView
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
         android:id="@+id/lista_foto"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@mipmap/dengue_gelada"
+<<<<<<< HEAD
         />
+=======
+        app:siRadius="1dp"
+        app:siBorderWidth="0.5dp"
+        app:siBorderColor="@color/amarromzado" />
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 
     <TextView
         android:id="@+id/lista_id"

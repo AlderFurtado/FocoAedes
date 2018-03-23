@@ -42,12 +42,18 @@
         <activity
             android:name=".Detalhe_Ocorrencia_Activity"
             android:theme="@style/AppTheme.NoActionBar" />
+<<<<<<< HEAD
         <activity
             android:name=".SobreActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity_nova_denuncia"
             android:label="@string/title_activity_nova_denuncia"
+=======
+
+        <activity
+            android:name=".SobreActivity"
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

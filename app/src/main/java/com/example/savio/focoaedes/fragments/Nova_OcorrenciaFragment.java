@@ -74,7 +74,11 @@ public class Nova_OcorrenciaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+<<<<<<< HEAD
         view = inflater.inflate(R.layout.fragment_nova_ocorrencia_foco, container, false);
+=======
+        view = inflater.inflate(R.layout.fragment_nova_ocorrencia, container, false);
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 
         spinner = (Spinner) view.findViewById(R.id.nova_tipo);
         // Create an ArrayAdapter using the string array and a default spinner layout

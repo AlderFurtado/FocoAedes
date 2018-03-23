@@ -11,7 +11,11 @@
         android:id="@+id/marker_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Muita Dengue aqui!"
+=======
+        android:text="Muita Dengue aqui !"
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
         android:maxLines="2"
         android:maxEms="10"
         android:textStyle="bold"
@@ -27,6 +31,10 @@
         android:src="@mipmap/dengue_gelada"
         app:siRadius="2dp"
         app:siBorderWidth="1dp"
+<<<<<<< HEAD
         app:siBorderColor="@color/pretinho" />
+=======
+        app:siBorderColor="@color/amarromzado" />
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 
 </LinearLayout>

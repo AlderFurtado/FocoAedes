@@ -9,7 +9,11 @@
         android:id="@+id/lista_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+<<<<<<< HEAD
         android:background="@color/verdinho">
+=======
+        android:background="@color/pretinho">
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +31,11 @@
 
             <TextView
                 android:id="@+id/lista_qtd_titulo"
+<<<<<<< HEAD
                 android:layout_width="0dp"
+=======
+                android:layout_width="0dip"
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 android:text="Focos Reportados:"

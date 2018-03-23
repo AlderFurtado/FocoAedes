@@ -5,8 +5,11 @@
     <color name="branquinho">#fff</color>
     <color name="vermelhudo">#f85959</color>
     <color name="amarromzado">#b8b1ab</color>
+<<<<<<< HEAD
     <color name="verdinho">#81c784</color>
     <color name="cinzinha">#616161</color>
+=======
+>>>>>>> d75c34ddcac1593be1894085cfe083f867f8ccf5
 
 
 </resources>
