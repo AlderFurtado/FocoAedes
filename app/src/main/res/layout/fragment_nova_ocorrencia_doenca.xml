@@ -31,12 +31,13 @@
                 android:layout_weight=".6"
                 android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/nova_salvar"
+            <ImageView
+                android:id="@+id/icone_foco"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
+                android:paddingBottom="5dp"
                 android:layout_weight=".3"
-                android:text="@string/save"
+                android:src="@drawable/ic_healing_black_24dp"
                 android:textColor="@android:color/white"
                 android:textSize="22dp"
                 android:gravity="center" />
@@ -58,23 +59,11 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/nova_foto"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="12dp"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/img_circle"
-                app:civ_border_color="@color/amarromzado"
-                app:civ_border_width="2dp"/>
-
             <EditText
                 android:id="@+id/nova_titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/textfield_bg"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="70dp"
                 android:padding="11dp"
                 android:layout_alignParentRight="true"
                 android:hint="Título"
@@ -90,7 +79,7 @@
                 android:background="@drawable/textfield_bg"
                 android:layout_marginTop="16dp"
                 android:padding="11dp"
-                android:layout_below="@+id/nova_foto"
+                android:layout_below="@+id/nova_titulo"
                 android:layout_alignParentLeft="true"
                 android:hint="Rua, Nº ..."
                 android:maxLines="1"
@@ -158,17 +147,6 @@
                 android:textColor="@color/pretinho"
                 android:visibility="gone" />
 
-            <Spinner
-                android:id="@+id/nova_tipo"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/nova_bairro"
-                android:layout_marginTop="16dp"
-                android:foreground="@drawable/textfield_bg"
-                android:paddingTop="11dp"
-                android:paddingBottom="11dp"
-                android:paddingLeft="5dp" />
-
             <EditText
                 android:id="@+id/nova_descricao"
                 android:layout_width="match_parent"
@@ -176,13 +154,26 @@
                 android:background="@drawable/textfield_bg"
                 android:layout_marginTop="16dp"
                 android:padding="11dp"
-                android:layout_below="@+id/nova_tipo"
+                android:layout_below="@id/nova_bairro"
                 android:layout_alignParentLeft="true"
                 android:hint="Descrição ..."
                 android:minLines="8"
                 android:gravity="top|left"
                 android:textColorHint="@color/amarromzado"
                 android:textColor="@color/pretinho" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_below="@id/nova_descricao"
+                android:padding="10dp">
+                <Button
+                    android:id="@id/nova_salvar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="salvar"
+                    android:background="@drawable/btn_borda_salvar" />
+            </RelativeLayout>
         </RelativeLayout>
 
     </ScrollView>
